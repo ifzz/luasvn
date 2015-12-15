@@ -1,16 +1,16 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "LuaSVN"
-version = "0.1-1"
+version = "0.2.6-1"
 -- LuaDist source
 source = {
-  tag = "0.1-1",
+  tag = "0.2.6-1",
   url = "git://github.com/LuaDist2/luasvn.git"
 }
 -- Original source
 -- source = {
---    url = "http://luaforge.net/frs/download.php/2512/luasvn-0.1.tar.gz",
---    dir = "luasvn-0.1/src"
+--    url = "http://luaforge.net/frs/download.php/2670/luasvn-0.2.6.tgz",
+--    dir = "luasvn-0.2.6/src"
 -- }
 description = {
    summary = "Library for using Subversion from Lua",
@@ -23,28 +23,30 @@ description = {
    homepage = "http://www.lua.inf.puc-rio.br/~sergio/luasvn/"
 }
 dependencies = {
-   "lua >= 5.1"
+   "lua >= 5.1",
+   "luafilesystem >= 1.2"
 }
 external_dependencies = {
    APR = {
       header = "apr-1/apr.h"
    },
-   SUBVERSION = {
-      header = "subversion-1/svn_repos.h"
+   APR_UTIL = {
+      header = "apr-1/apr_xlate.h"
    },
-   UUID = {
-      library = "libuuid.so"
+   SUBVERSION = {
+      header = "subversion-1/svn_io.h"
    }
 }
 build = {
    type = "make",
    install_pass = false,
    build_variables = {
-      APR = "-I$(APR_INCDIR)/apr-1",
+      APR = "-I$(APR_INCDIR)/apr-1",       
+      APR_UTIL = "-I$(APR_UTIL_INCDIR)/apr-1",
       SUBVERSION = "-I$(SUBVERSION_INCDIR)/subversion-1",
-      LDFLAGS = "$(LIBFLAG) -L$(APR_LIBDIR) -L$(SUBVERSION_LIBDIR) -L$(UUID_LIBDIR)"
+      LDFLAGS = "-Wl,-R$(SUBVERSION_LIBDIR) $(LIBFLAG) -L$(SUBVERSION_LIBDIR)"
    },
    install = {
-      lib = { "luasvn.so" }
+      lib = { "svn.so" }
    }
 }
