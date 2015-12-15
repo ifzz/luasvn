@@ -1,16 +1,16 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "LuaSVN"
-version = "0.3.0-1"
+version = "0.4.0-1"
 -- LuaDist source
 source = {
-  tag = "0.3.0-1",
+  tag = "0.4.0-1",
   url = "git://github.com/LuaDist2/luasvn.git"
 }
 -- Original source
 -- source = {
---   url = "http://luaforge.net/frs/download.php/3226/luasvn-0.3.0.tar.gz",
---   dir = "luasvn-0.3.0/src"
+--   url = "http://luaforge.net/frs/download.php/4131/luasvn-0.4.0.tar.gz",
+--   dir = "luasvn-0.4.0/src"
 -- }
 description = {
   summary = "Library for using Subversion from Lua",
