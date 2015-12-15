@@ -1,10 +1,10 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "LuaSVN"
-version = "0.2.6-1"
+version = "0.2.6-2"
 -- LuaDist source
 source = {
-  tag = "0.2.6-1",
+  tag = "0.2.6-2",
   url = "git://github.com/LuaDist2/luasvn.git"
 }
 -- Original source
@@ -41,9 +41,9 @@ build = {
    type = "make",
    install_pass = false,
    build_variables = {
-      APR = "-I$(APR_INCDIR)/apr-1",       
+      APR = "-I$(APR_INCDIR)/apr-1",
       APR_UTIL = "-I$(APR_UTIL_INCDIR)/apr-1",
-      SUBVERSION = "-I$(SUBVERSION_INCDIR)/subversion-1",
+      SUBVERSION = "-I$(SUBVERSION_INCDIR)/subversion-1 -I$(LUA_INCDIR)",
       LDFLAGS = "-Wl,-R$(SUBVERSION_LIBDIR) $(LIBFLAG) -L$(SUBVERSION_LIBDIR)"
    },
    install = {
